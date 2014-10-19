@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/rg'
-require './lib/Scraper.rb'
+require './scraper.rb'
 
 teststation = {
 '1' => "新竹地區",
@@ -35,4 +35,3 @@ describe "station" do
     @found[9].must_equal teststation['9']
   end
 end
-
