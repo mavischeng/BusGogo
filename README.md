@@ -37,3 +37,6 @@ Mavis Cheng (Cheng SyunWei), Yen Wei ,Wu ChiaChun
 
 DownLoad 
 SSH : git clone git@github.com:mavischeng/WebScraper.git
+
+### MiniTest
+type : *ruby s_test.rb*
