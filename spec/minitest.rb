@@ -4,6 +4,11 @@ require './lib/Scraper.rb'
 require 'nokogiri'
 
 scmachine = WebScraper.new
+url = 'http://www.hcbus.com.tw/big5/service.asp'
+agent = Mechanize.new
+page = agent.get(url)
+form = agent.page.forms.first
+
 describe 'Test Functions' do
   it 'web structure' do
     web_data = open('http://www.hcbus.com.tw')
@@ -16,6 +21,9 @@ describe 'Test Functions' do
   end
 
   it 'selection' do
-    scmachine.selectstation(1).must_equal scmachine.selectstation(1)
+    scmachine.selectdropdown(1)
+    form.field_with(:name => 'jumpMenu').options[1].click
+    page2 = form.submit
+    @page.must_equal page2
   end
 end
