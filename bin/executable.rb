@@ -1,4 +1,4 @@
-require_relative 'scraper'
+require_relative '../lib/Scraper'
 usage = []
 usage << "\n Usage : executable [number] .\n"
 usage << "\nNumber 1 : Hsinchu bus\' stations."
