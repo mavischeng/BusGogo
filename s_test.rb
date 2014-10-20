@@ -23,6 +23,15 @@ describe "station" do
     #@selet=mac.tmp_selectstation
   end
 
+   it 'find 新竹地區' do
+    @found[8].wont_match /\d/
+  end
+  it 'find 新竹地區' do
+    @found[8].wont_be_empty
+  end
+  it 'find 苗栗地區' do
+    @found[9].wont_be_empty
+  end
   it 'find 新竹地區' do
     @found[1].must_equal teststation['1']
   end
