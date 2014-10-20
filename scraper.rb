@@ -20,7 +20,7 @@ class WebScraper
   def getwebstructure(website)
     web_data = open(website)
     @data = Nokogiri.HTML(web_data)
-    File.write('Structure.txt', @data)
+	 return @data 
   end
 
   def file_output
@@ -30,8 +30,7 @@ class WebScraper
   end
 
   def busstation
-  url='http://www.hcbus.com.tw/big5/service.asp'
-
+    url='http://www.hcbus.com.tw/big5/service.asp'
     num, @station = 1, {}
     getwebstructure(url)
     @data.css("select[name='jumpMenu'] option").each do |x|
@@ -41,61 +40,45 @@ class WebScraper
   return   @station
   end
 
-  def selectstation
-    busstation
-    puts 'Please select a region  (Enter:1 or 2 or 3.....)'
-    select_station = $stdin.gets.chomp
-    if select_station.to_i >= 0 && select_station.to_i <= @station.length
-      puts 'Region :#{station[select_station.to_i - 1]} \n'
-    else
-      puts '[ERROR]'
-    end
-    selectdropdown(select_station.to_i - 1)
-  end
-def tmp_selectstation
-selectdropdown(1)
-selectdropdown(2)
-end
-  def selectdropdown(num)
-    url = 'http://www.hcbus.com.tw/big5/service.asp'
+def selectdropdown(url,num)
+    tmpkey = [], tmpvalue = [], tmpkey2 = [] ,@page=[],title =[],content=[],content2=[]
     agent = Mechanize.new
     form = agent.get(url).forms.first
-    form.field_with(name: 'jumpMenu').options[num.to_i].click
-    tmppage = form.submit
-    @page = tmppage
-    getinformation
-  end
-
-  def getinformation
-    key = [], value = [], key2 = []
+    form.field_with(name: 'jumpMenu').options[num].click
+    @page  = form.submit  
     title = @page.parser.xpath("//table/tr[@class='text1_white']/td")
     content = @page.parser.xpath("//table/tr/td[@class='map-style']")
     content2 = @page.parser.xpath("//table/tr/td[@class='map-style'][1]")
-    content2.each { |b| key2 << b.text.strip }
-    title.each { |t| key << t.text.strip }
-    content.each { |c| value << c.text.strip }
-    makehash(key, value, key2)
-    filehash(key, value, key2)
+    content2.each { |b| tmpkey2 << b.text.strip }
+    title.each { |t| tmpkey << t.text.strip }
+    content.each { |c| tmpvalue << c.text.strip }
+    filehash(tmpkey, tmpvalue, tmpkey2)
   end
-
-  def makehash(_key, value, tmpkey)
+ def filehash(key, value, key2)
     value.each  do  |v|
-      tmpkey.each  do  |c|
-        puts '**************************************' if v == c
-      end
-      puts v
-    end
-    puts '**************************************'
-  end
-
-  def filehash(_key, value, tmpkey)
-    @output = []
-    value.each  do  |v|
-      tmpkey.each  do  |c|
+      key2.each  do  |c|
         @output << '**************************************'  if v == c
       end
       @output << v
     end
-    @output << '**************************************'
+    @output << '**************************************'  
   end
+  def tmp_selectstation
+    @output = []
+    url = 'http://www.hcbus.com.tw/big5/service.asp'
+    #busstation
+    num, @station = 1, {}
+    getwebstructure(url)
+    @data.css("select[name='jumpMenu'] option").each do |x|
+    @station[num] = x.text  
+    num+=1
+    end
+
+    for i in 0..9
+	 selectdropdown(url,i)
+    end
+     return @output
+  end
+  
+
 end
