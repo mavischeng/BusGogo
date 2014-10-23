@@ -8,19 +8,19 @@ usage << "\n Number 4 : Get file (bus stataion information)bus."
 fail ArgumentError, usage if ARGV.count != 1
 number = ARGV[0]
 scmachine = WebScraper.new
-structure_output=scmachine.getwebstructure('http://www.hcbus.com.tw')
-bus_station=scmachine.busstation
-information=scmachine.tmp_selectstation
+structure_output = scmachine.getwebstructure('http://www.hcbus.com.tw')
+bus_station = scmachine.busstation
+information = scmachine.tmp_selectstation
 case number
 when '1'
   File.write('Structure.txt', structure_output)
 when '2'
-  bus_station.each{|key,value| puts value}
+  bus_station.each { |value| puts value }
 when '3'
   puts information
 when '4'
   File.write('Output.txt', information)
-  puts "Please check data in Output.txt file"
+  puts 'Please check data in Output.txt file'
 else
   puts '(1~4) Error input : you key in No ' << number.to_s
 end
