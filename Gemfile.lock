@@ -1,8 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    open-uri
-    rubygems
     mechanize
     nokogiri
     sinatra
