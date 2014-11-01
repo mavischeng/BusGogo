@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 #gemspec
 
  
-gem 'open-uri'
+#gem 'open-uri'
 gem 'nokogiri'
-gem 'rubygems'
+#gem 'rubygems'
 gem 'mechanize'
 gem 'sinatra'
