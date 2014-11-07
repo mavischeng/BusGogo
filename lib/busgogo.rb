@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'nokogiri'
-require 'rubygems'
 require 'mechanize'
 # Class that can be used to grab data from website(http://www.hcbus.com.tw/)
 class WebScraper
