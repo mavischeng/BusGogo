@@ -12,7 +12,7 @@ By the way, this website dosen't provide API and need not log in.
 
 ###Files
 
-1) Class file : scraper.rb <br/>
+1) Class file : busgogo.rb <br/>
 2) Application file : executable.rb <br/>
 3) Gemfile : Gemfile<br/>
 
@@ -35,5 +35,5 @@ Mavis Cheng (Cheng SyunWei), Yen Wei ,Wu ChiaChun
 
 ### For Authors
 
-DownLoad 
+DownLoad
 SSH : git clone git@github.com:mavischeng/BusGoGo.git
