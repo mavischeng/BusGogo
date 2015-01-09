@@ -13,4 +13,5 @@ Gem::Specification.new do |s|
   s.files       = ["lib/busgogo.rb"]
   s.homepage    =
     'http://rubygems.org/gems/busgogo'
+    
 end
