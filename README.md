@@ -26,6 +26,7 @@ Usage : ruby executable.rb [number]
     Get bus stataion information (stop name and address) of all area in detail. <br/>
 5) ruby executable.rb 4 <br/>
     Get file (bus stataion information: stop name and address):Output.txt
+    
 6) ruby executable.rb 5 <br/>
     Get bus stataion information of one area (bus stataion information: stop name and address).
 
