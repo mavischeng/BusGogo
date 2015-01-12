@@ -1,7 +1,4 @@
 ##BusGoGo
-##( Week4 Homework )
-
-
 ###Description ( Hsinzhu Bus Website )
 
 We use *Hsinzhu Bus Website* because we often take hsinzhu bus to somewhere.
@@ -24,11 +21,14 @@ Usage : ruby executable.rb [number]
 2) ruby executable.rb 1 <br/>
     Save HsinZhu Bus Website structure into a file (Structure.txt) <br/>
 3) ruby executable.rb 2 <br/>
-    Show HsinZhu Bus Station. <br/>
+    Show All Area name of Bus. <br/>
 4) ruby executable.rb 3 <br/>
-    Get bus stataion information in detail. <br/>
+    Get bus stataion information (stop name and address) of all area in detail. <br/>
 5) ruby executable.rb 4 <br/>
-    Get file (bus stataion information)bus(Output.txt).
+    Get file (bus stataion information: stop name and address):Output.txt
+6) ruby executable.rb 5 <br/>
+    Get bus stataion information of one area (bus stataion information: stop name and address).
+
 ###Authors
 
 Mavis Cheng (Cheng SyunWei), Yen Wei ,Wu ChiaChun
